@@ -8,43 +8,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="mobile-web-app-capable" content="yes">
-<!--         <link rel="apple-touch-icon" href="apple-touch-icon.png"> -->
+        <link rel="apple-touch-icon" href="apple-touch-icon.png"> 
         <link rel="stylesheet" href="assets/css/vendor.css"/>
         <link rel="stylesheet" href="assets/css/main.css"/>
         <link rel="stylesheet" href="https://api.mapbox.com/mapbox.js/v2.3.0/mapbox.css"/>
-        <style>
-            [ng\:cloak], 
-            [ng-cloak], 
-            [data-ng-cloak], 
-            [x-ng-cloak], 
-            .ng-cloak, 
-            .x-ng-cloak {
-              display: none !important;
-            }
-        </style>
+        <style>[ng\:cloak], [ng-cloak], [data-ng-cloak],[x-ng-cloak],.ng-cloak, .x-ng-cloak {display: none !important;}</style>
     </head>
     <body ng-cloak>
         <toaster-container></toaster-container>
-        <nav id="main" ng-controller="nav as navCtrl">
-          <ul>
-            <li ui-sref-active="white" ui-sref="home"><a ui-sref="home" ui-sref-active="white" class="home-link">Home</a></li>
-            <li ui-sref-active="eat" ui-sref="eat"><a ui-sref="eat" ui-sref-active="eat" class="eat-link">Eat</a></li>
-            <li ui-sref-active="drink" ui-sref="drink"><a ui-sref="drink" ui-sref-active="drink" class="drink-link">Drink</a></li>
-            <li ui-sref-active="attend" ui-sref="attend"><a ui-sref="attend" ui-sref-active="attend" class="attend-link ">Attend</a></li>
-            <li>
-                <a data-href="" class="menu-link" ng-click="navCtrl.openNavOverlay()">
-                    
-                    <img ng-show="user.signedIn" 
-                         ng-src="{{user.avatar.url | defaultImg:'/avatar.png'}}" 
-                         class="img-fluid img-circle"/>    
-                    
-                    <img ng-hide="user.signedIn" 
-                         src="assets/img/layout/menu.png" 
-                         class="img-fluid img-circle"/>
-                </a>
-            </li>
-          </ul>
-        </nav>
+        <ns-nav></ns-nav>
         <ui-view></ui-view>
         <div class="ns-overlay" ns-overlay ng-show="showOverlay"> 
             <div class="x-overlay" ng-click="dismiss()">x</div>    
@@ -56,7 +28,6 @@
             </div>
             </div>
         </div>
-        
         <div id="ns-splash" ns-splash ng-class="{'show': location.pending}">
             <h4>Finding Nearby Spots</h4>
             <div id="container">
@@ -64,7 +35,6 @@
                 <div class="ns-dot-pulse"></div>
             </div>    
         </div>
-        
     <script src="assets/js/vendor.js"></script>
     <script src='https://api.mapbox.com/mapbox.js/v2.3.0/mapbox.js'></script>
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.16.0/mapbox-gl.js'></script>
